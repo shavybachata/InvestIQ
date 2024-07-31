@@ -3,10 +3,10 @@
 **investIQ** is an AI-driven platform offering personalized financial advice on stocks, cryptocurrencies, property investments, and government policies. Our recommendations are tailored based on user profile data such as gender, age, income, and savings.
 
 ##Home Page
-![Alt text](image_url)
+![Alt text](home.png)
 
 ##UserProfile
-![Alt text](image_url)
+![Alt text](LLM.png)
 
 ## Features
 
