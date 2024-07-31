@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>InvestIQ</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        /* General styling */
+        body, html {
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+            font-family: Arial, sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+        }
+
+        /* Background GIF */
+        #backgroundGif {
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            min-width: 100%;
+            min-height: 100%;
+            z-index: -1;
+            object-fit: cover;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* Header styling */
+        header {
+            background: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+            color: #fff;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+
+        .logo {
+            width: 150px;
+            height: auto;
+        }
+
+        /* Hero section styling */
+        .hero {
+            text-align: center;
+            padding: 100px 0;
+            background: rgba(0, 0, 0, 0.5); /* Semi-transparent dark background */
+            color: #fff;
+            position: relative;
+            z-index: 1;
+        }
+
+        .hero-background {
+            background-image: url('back.jpg'); /* Replace with your background image URL */
+            background-size: cover;
+            background-position: center;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.6; /* Reduced opacity for better text visibility */
+        }
+
+        .hero h1 {
+            margin: 0;
+            font-size: 3em;
+            color: #fff;
+        }
+
+        .hero p {
+            font-size: 1.5em;
+            margin: 20px 0;
+            color: #f5f5f5;
+        }
+
+        /* Button styling */
+        #startAnalyzingBtn {
+            display: inline-block;
+            padding: 15px 30px;
+            font-size: 1.2em;
+            color: #fff;
+            background-color: #000000;
+            border: none;
+            border-radius: 5px;
+            text-decoration: none;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        #startAnalyzingBtn:hover {
+            background-color: #e6b800;
+            transform: scale(1.05); /* Slightly enlarge the button on hover */
+        }
+
+        /* About and Features sections styling */
+        .about, .features, .courses {
+            background: rgba(255, 255, 255, 0.9);
+            color: #333;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .about h2, .features h2, .courses h2 {
+            font-size: 2.5em;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .features ul, .courses ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .features li, .courses li {
+            font-size: 1.2em;
+            margin-bottom: 10px;
+        }
+
+        .courses a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: bold;
+        }
+
+        .courses a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer styling */
+        footer {
+            background: rgba(0, 0, 0, 0.8); /* Darker background for better contrast */
+            color: #fff;
+            text-align: center;
+            padding: 20px 0;
+            position: relative;
+            z-index: 1;
+        }
+
+        footer p {
+            margin: 0;
+        }
+
+        /* Chatbot styling */
+        .chatbot {
+            position: fixed;
+            bottom: 20px; /* Distance from the bottom of the viewport */
+            right: 20px; /* Distance from the right of the viewport */
+            width: 350px; /* Adjust the width as needed */
+            height: 430px; /* Adjust the height as needed */
+            border: none; /* Remove default border */
+            z-index: 1000; /* Ensure it's above other content */
+        }
+    </style>
+</head>
+<body>
+    <!-- GIF background -->
+    <img src="your-background-gif.gif" alt="Background GIF" id="backgroundGif"> <!-- Ensure to replace with actual GIF -->
+
+    <header>
+        <div class="container">
+            <img src="logo.jpg" alt="InvestIQ Logo" class="logo">
+        </div>
+    </header>
+    <main>
+        <section class="hero">
+            <div class="hero-background"></div>
+            <div class="container">
+                <h1>Predict the Best Stocks to Invest Based on Your Income</h1>
+                <p>Join InvestIQ and start making smarter investments today.</p>
+                <a href="index1.html" id="startAnalyzingBtn">Start Analyzing</a>
+                <a href="http://localhost:8501/" id="startAnalyzingBtn">Stock Performance Analysis</a>
+            </div>
+        </section>
+        <section class="courses">
+            <div class="container">
+                <h2>Financial Literacy Courses</h2>
+                <ul>
+                    <li><a href="https://www.coursera.org/learn/financial-markets" target="_blank">Introduction to Financial Markets - Coursera</a></li>
+                    <li><a href="https://www.udemy.com/course/personal-finance/" target="_blank">Personal Finance Masterclass - Udemy</a></li>
+                    <li><a href="https://www.khanacademy.org/college-careers-more/personal-finance" target="_blank">Personal Finance - Khan Academy</a></li>
+                    <li><a href="https://www.edx.org/course/finance-for-everyone-smart-tools-for-decisions" target="_blank">Finance for Everyone - edX</a></li>
+                    <li><a href="https://www.youtube.com/playlist?list=PLcP0gZNG8SEzvV_jG4jsQ6-2p3PFAy7I3" target="_blank">Financial Literacy Basics - YouTube Playlist</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=1m2c2CpV4FA" target="_blank">The Basics of Investing - YouTube Video</a></li>
+                    <li><a href="https://www.youtube.com/watch?v=j6vXBkVwW6E" target="_blank">Understanding Personal Finance - YouTube Video</a></li>
+                </ul>
+            </div>
+        </section>
+        <section class="about">
+            <div class="container">
+                <h2>About Us</h2>
+                <p>InvestIQ is dedicated to helping you make informed investment decisions. Our platform analyzes your income and provides personalized stock recommendations to maximize your returns.</p>
+            </div>
+        </section>
+        <section class="features">
+            <div class="container">
+                <h2>Features</h2>
+                <ul>
+                    <li>Personalized stock recommendations</li>
+                    <li>Real-time market analysis</li>
+                    <li>User-friendly interface</li>
+                    <li>Expert financial advice</li>
+                </ul>
+            </div>
+        </section>
+    </main>
+    <footer>
+        <div class="container">
+            <p>&copy; 2024 InvestIQ. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Chatbot iframe -->
+    <iframe
+        class="chatbot"
+        allow="microphone;"
+        src="https://console.dialogflow.com/api-client/demo/embedded/293bf5c9-fe29-4620-aa2f-a6af25d30ee8">
+    </iframe>
+
+    <script src="scripts.js"></script>
+</body>
+</html>

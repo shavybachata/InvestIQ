@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Input Form</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap"> <!-- Link to Google Fonts -->
+    <style>
+        /* Basic styling for the form */
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #000; /* Black background */
+            color: #fff; /* White text */
+        }
+        .container {
+            background-color: #222; /* Dark gray for form background */
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
+            width: 90%;
+            max-width: 1000px;
+            box-sizing: border-box;
+            overflow: hidden; /* Ensure container does not overflow */
+        }
+        h2 {
+            margin-bottom: 20px;
+            color: #f7c600; /* Yellow text for the title */
+            font-size: 2em;
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 8px;
+            color: #f7c600; /* Yellow text for labels */
+            font-weight: bold;
+        }
+        input, select {
+            width: calc(100% - 20px);
+            padding: 12px;
+            margin-bottom: 15px;
+            border: 1px solid #444; /* Dark border */
+            border-radius: 5px;
+            background-color: #333; /* Dark input background */
+            color: #fff; /* White text in inputs */
+            font-size: 1em;
+        }
+        button {
+            width: 100%;
+            padding: 12px;
+            border: none;
+            border-radius: 5px;
+            background-color: #f7c600; /* Yellow button */
+            color: #000; /* Black text on button */
+            font-size: 1.2em;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+        button:hover {
+            background-color: #e6b800; /* Darker yellow on hover */
+        }
+        #responseContainer {
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .responses {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            width: 100%;
+            max-height: 400px; /* Fixed height for the response container */
+            overflow-y: auto; /* Enable vertical scrolling */
+            position: relative;
+            transition: max-height 0.5s ease-out;
+        }
+        .response-box {
+            margin: 10px;
+            padding: 20px;
+            background-color: #444; /* Dark gray for response background */
+            border-radius: 5px;
+            border: 1px solid #555; /* Slightly lighter border */
+            width: calc(50% - 20px); /* Adjust width to fit two columns */
+            max-height: 0; /* Initially hide the box */
+            opacity: 0; /* Initially hide the content */
+            transition: max-height 0.5s ease-out, opacity 0.5s ease-out;
+            overflow: hidden;
+        }
+        .response-box h4 {
+            margin-top: 0;
+            color: #f7c600; /* Yellow text for headings */
+            font-size: 1.5em;
+        }
+        .response-box p {
+            margin: 0;
+            font-size: 1.1em;
+        }
+        .response-box.active {
+            max-height: 300px; /* Expand to accommodate content */
+            opacity: 1; /* Make content visible */
+        }
+        .response-box.active p {
+            animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+            to {
+                opacity: 1;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>User Information Form</h2>
+        <form id="userForm">
+            <label for="age">Age:</label>
+            <input type="number" id="age" name="age" required>
+            
+            <label for="gender">Gender:</label>
+            <select id="gender" name="gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+                <option value="other">Other</option>
+            </select>
+            
+            <label for="income">Income:</label>
+            <input type="number" id="income" name="income" required>
+            
+            <label for="savings">Savings:</label>
+            <input type="number" id="savings" name="savings" required>
+            
+            <button type="button" onclick="submitForm()">Submit</button>
+        </form>
+        <div id="responseContainer">
+            <div class="responses">
+                <div id="stockResponse" class="response-box">
+                    <h4>Stock Options</h4>
+                    <p></p>
+                </div>
+                <div id="cryptoResponse" class="response-box">
+                    <h4>Crypto Options</h4>
+                    <p></p>
+                </div>
+                <div id="propertyResponse" class="response-box">
+                    <h4>Property Options</h4>
+                    <p></p>
+                </div>
+                <div id="policyResponse" class="response-box">
+                    <h4>Government Policies</h4>
+                    <p></p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function submitForm() {
+            // Get form data
+            const age = document.getElementById('age').value;
+            const gender = document.getElementById('gender').value;
+            const income = document.getElementById('income').value;
+            const savings = document.getElementById('savings').value;
+
+            // Create an object with the form data
+            const data = {
+                age: age,
+                gender: gender,
+                income: income,
+                savings: savings
+            };
+
+            // Make a POST request to the Flask API
+            fetch('http://localhost:5001/api/get_response', {  // Ensure this URL matches your Flask app URL
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            })
+            .then(response => response.json())
+            .then(data => {
+                // Update the response containers with the API responses
+                const responses = {
+                    stock: data.stocks || 'No data available',
+                    crypto: data.crypto || 'No data available',
+                    property: data.property || 'No data available',
+                    policy: data.policy || 'No data available'
+                };
+
+                // Function to update response boxes
+                const updateResponseBox = (id, text) => {
+                    const box = document.getElementById(id);
+                    const p = box.querySelector('p');
+                    p.textContent = text;
+                    box.classList.add('active');
+                };
+
+                // Clear and update response boxes
+                updateResponseBox('stockResponse', responses.stock);
+                updateResponseBox('cryptoResponse', responses.crypto);
+                updateResponseBox('propertyResponse', responses.property);
+                updateResponseBox('policyResponse', responses.policy);
+            })
+            .catch(error => {
+                // Handle any errors that occurred during the fetch
+                document.getElementById('stockResponse').querySelector('p').textContent = 'An error occurred: ' + error.message;
+                document.getElementById('cryptoResponse').querySelector('p').textContent = 'An error occurred: ' + error.message;
+                document.getElementById('propertyResponse').querySelector('p').textContent = 'An error occurred: ' + error.message;
+                document.getElementById('policyResponse').querySelector('p').textContent = 'An error occurred: ' + error.message;
+            });
+        }
+    </script>
+</body>
+</html>
