@@ -1,13 +1,38 @@
-investIQ
-Welcome to investIQ! This platform provides personalized financial advice on stocks, cryptocurrencies, property investments, and government policies. The recommendations are tailored based on user profile data, including gender, age, income, and savings.
+# investIQ
 
-Features
-Personalized Financial Advice: investIQ offers advice on various investment opportunities, taking into account the user's profile data.
-Chatbot Integration: A chatbot powered by Google Dialogflow is integrated into the platform, providing seamless interaction and real-time support.
-OpenAI API: The website utilizes the OpenAI API to generate multiple prompts and responses based on user profiles, offering diverse perspectives and suggestions.
-Getting Started
-Prerequisites
-Node.js: Ensure you have Node.js installed on your system.
-MongoDB: Set up a MongoDB database to store user profiles and interaction data.
-Google Dialogflow: Create a Dialogflow agent and obtain the necessary credentials.
-OpenAI API Key: Obtain an API key from OpenAI to access their services.
+**investIQ** is an AI-driven platform offering personalized financial advice on stocks, cryptocurrencies, property investments, and government policies. Our recommendations are tailored based on user profile data such as gender, age, income, and savings.
+
+##Home Page
+![Alt text](image_url)
+
+##UserProfile
+![Alt text](image_url)
+
+## Features
+
+- **Personalized Financial Advice**: Receive customized advice based on your profile.
+- **Chatbot Integration**: Interact with a chatbot powered by Google Dialogflow for real-time assistance.
+- **OpenAI API**: Leverages OpenAI's API for generating diverse and insightful responses.
+
+## Tech Stack
+
+- **Frontend**: HTML, CSS, JavaScript
+- **Backend**: Node.js, Express
+- **Database**: MongoDB
+- **APIs**: Google Dialogflow, OpenAI
+
+## Getting Started
+
+### Prerequisites
+
+- **Node.js**: Required for running the server.
+- **MongoDB**: Used to store user profiles and other data.
+- **Google Dialogflow**: For natural language processing.
+- **OpenAI API Key**: For generating AI responses.
+
+### Installation
+
+1. **Clone the repository**
+
+   ```bash
+   git clone https://github.com/yourusername/investIQ.git
